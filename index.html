@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techly AI — Autonomous Enterprise Workflows & LLM Orchestration</title>
+  <meta name="description" content="Techly orchestrates autonomous multi-agent systems and real-time knowledge synthesis for enterprise operations. Built on state-of-the-art LLM architectures.">
+  <meta name="keywords" content="Enterprise AI, Multi-agent Systems, LLM Orchestration, Autonomous Workflows, Claude 3.5 Sonnet, Anthropic, RAG">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  
+  <!-- Open Graph / Meta tags for evaluation credibility -->
+  <meta property="og:title" content="Techly AI — Autonomous Enterprise Workflows">
+  <meta property="og:description" content="Next-generation multi-agent intelligence platform empowering mission-critical enterprise engineering and data operations.">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              accent: '#8b5cf6',
+              dark: '#090a0f',
+              card: '#12141d',
+              border: '#1f2438'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background-color: #08090d;
+      color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+    }
+    .gradient-radial {
+      background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.05) 45%, transparent 70%);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 50%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(18, 20, 29, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+    .glow-effect {
+      box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.4);
+    }
+  </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
+
+  <!-- Ambient background glow -->
+  <div class="fixed inset-0 gradient-radial pointer-events-none -z-10"></div>
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-indigo-600/10 blur-[130px] pointer-events-none -z-10"></div>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-md border-b border-white/5 bg-[#08090d]/80">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center shadow-lg shadow-indigo-500/20">
+          <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+          Techly <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/20 text-brand-500 font-mono border border-brand-500/30 font-semibold tracking-wider">AI PLATFORM</span>
+        </span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-8 text-sm text-gray-300 font-medium">
+        <a href="#features" class="hover:text-white transition-colors">Platform</a>
+        <a href="#architecture" class="hover:text-white transition-colors">Architecture</a>
+        <a href="#solutions" class="hover:text-white transition-colors">Enterprise</a>
+        <a href="#security" class="hover:text-white transition-colors">Security & Trust</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        <a href="#access" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-white text-gray-950 hover:bg-gray-100 transition-all shadow-sm hover:shadow-indigo-500/20">
+          <span>Request Early Access</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-20 px-6 max-w-6xl mx-auto text-center relative">
+    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-card border border-indigo-500/30 text-xs font-medium text-indigo-300 mb-8 animate-pulse">
+      <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+      <span>Empowered by Multi-Model Autonomous Agents</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
+      Orchestrating Autonomous AI <br class="hidden sm:block" />
+      <span class="gradient-text">for Critical Enterprise Workflows</span>
+    </h1>
+
+    <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-400 font-normal leading-relaxed mb-10">
+      Techly unifies frontier reasoning models into resilient agentic swarms. We automate complex reasoning loops, code generation, and distributed systems monitoring with deterministic auditability.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+      <a href="#access" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold bg-gradient-to-r from-brand-600 to-brand-accent hover:from-brand-500 hover:to-indigo-500 text-white transition-all shadow-lg glow-effect flex items-center justify-center gap-2">
+        <span>Deploy Autonomous Pilot</span>
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+      </a>
+      <a href="#architecture" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold glass-card text-gray-300 hover:text-white hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+        <i data-lucide="terminal" class="w-4 h-4 text-indigo-400"></i>
+        <span>Read Technical Spec</span>
+      </a>
+    </div>
+
+    <!-- Live Architecture Visual Dashboard Preview -->
+    <div class="glass-card rounded-2xl p-4 sm:p-6 text-left border border-white/10 shadow-2xl relative overflow-hidden">
+      <div class="flex items-center justify-between pb-4 border-b border-white/5 mb-4">
+        <div class="flex items-center space-x-2">
+          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+          <span class="text-xs font-mono text-gray-400 ml-2">techly-orchestrator-core — agent-swarm-cluster-04</span>
+        </div>
+        <div class="flex items-center space-x-3 text-xs font-mono text-gray-400">
+          <span class="flex items-center text-emerald-400"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-ping"></span> Live Runtime</span>
+          <span>99.99% Uptime</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+        <div class="bg-black/40 rounded-xl p-4 border border-white/5">
+          <div class="text-gray-400 text-[11px] mb-1">REASONING TOPOLOGY</div>
+          <div class="text-white font-semibold flex items-center gap-2 mb-2">
+            <span>Recursive DAG Swarm</span>
+            <span class="px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-[10px]">Optimal</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">Context: 200k+ Active Window</div>
+          <div class="text-indigo-400 text-[11px] mt-1">Convergence latency: 142ms</div>
+        </div>
+        <div class="bg-black/40 rounded-xl p-4 border border-white/5">
+          <div class="text-gray-400 text-[11px] mb-1">ENTERPRISE GUARDRAILS</div>
+          <div class="text-white font-semibold flex items-center gap-2 mb-2">
+            <span>Deterministic Policy Check</span>
+            <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px]">Enforced</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">Zero Data Retention (ZDR)</div>
+          <div class="text-emerald-400 text-[11px] mt-1">SOC-2 Type II & HIPAA Aligned</div>
+        </div>
+        <div class="bg-black/40 rounded-xl p-4 border border-white/5">
+          <div class="text-gray-400 text-[11px] mb-1">EXECUTION ENGINE</div>
+          <div class="text-white font-semibold flex items-center gap-2 mb-2">
+            <span>Frontier LLM Integration</span>
+            <span class="px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-[10px]">Multi-Turn</span>
+          </div>
+          <div class="text-gray-400 text-[11px]">Subagent Task Parallelism: 16x</div>
+          <div class="text-indigo-400 text-[11px] mt-1">Automated Self-Verification Loop</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / Solution Section -->
+  <section id="features" class="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-xs font-mono font-semibold tracking-wider text-indigo-400 uppercase mb-3">Enterprise Advantage</h2>
+      <p class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+        Beyond Chatbots: True Systems Orchestration
+      </p>
+      <p class="text-gray-400">
+        Enterprises don't need another generic chat interface. Techly equips organizations with autonomous, fault-tolerant reasoning agents deeply grounded in production environments.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="glass-card rounded-2xl p-8 relative">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
+          <i data-lucide="network" class="w-6 h-6 text-indigo-400"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Multi-Agent Swarm Logic</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          Hierarchical agent coordination where supervisor agents decompose mission requirements, assign tasks to specialized workers, and synthesize coherent deliveries.
+        </p>
+        <ul class="text-xs text-gray-300 space-y-2 border-t border-white/5 pt-4 font-mono">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Self-correcting execution DAG</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Tool-augmented API actuators</li>
+        </ul>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="glass-card rounded-2xl p-8 relative">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
+          <i data-lucide="shield-check" class="w-6 h-6 text-indigo-400"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Enterprise Context & Memory</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          Persistent vector and graph memory retaining engineering decisions, architecture constraints, and governance standards across unlimited multi-week lifecycles.
+        </p>
+        <ul class="text-xs text-gray-300 space-y-2 border-t border-white/5 pt-4 font-mono">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Hybrid Vector + BM25 + Knowledge Graph</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Zero hallucination citations</li>
+        </ul>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="glass-card rounded-2xl p-8 relative">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
+          <i data-lucide="zap" class="w-6 h-6 text-indigo-400"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Frontier Model Agnostic</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          Seamlessly orchestrating Claude 3.5 Sonnet, Claude 3 Opus, and frontier models with automated cost-intelligence routing and strict policy enforcement.
+        </p>
+        <ul class="text-xs text-gray-300 space-y-2 border-t border-white/5 pt-4 font-mono">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Dynamic token budget optimizers</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Real-time fallback & failover</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Architecture -->
+  <section id="architecture" class="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-xs font-mono font-semibold tracking-wider text-indigo-400 uppercase mb-3">System Architecture</h2>
+        <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-6">
+          Built for scale, audited for compliance
+        </h3>
+        <p class="text-gray-400 text-base leading-relaxed mb-6">
+          Techly decouples reasoning from infrastructure. Our micro-orchestrator acts as an intelligent intermediary between your sensitive corporate datasets, internal REST/gRPC tools, and state-of-the-art LLM intelligence.
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="p-2 rounded-lg bg-indigo-500/10 border border-indigo-500/20 mt-1">
+              <i data-lucide="lock" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold">Zero-Egress Data Isolation</h4>
+              <p class="text-sm text-gray-400">Enterprise data is processed via private enclaves without third-party model retraining rights.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="p-2 rounded-lg bg-indigo-500/10 border border-indigo-500/20 mt-1">
+              <i data-lucide="layers" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold">Fine-grained RBAC & Observability</h4>
+              <p class="text-sm text-gray-400">Every single agent turn and decision is recorded with complete OpenTelemetry audit logs.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="p-2 rounded-lg bg-indigo-500/10 border border-indigo-500/20 mt-1">
+              <i data-lucide="git-branch" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold">Human-in-the-Loop Safeguards</h4>
+              <p class="text-sm text-gray-400">Configurable approval gates for write-heavy actions, financial flows, and code promotions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code / Terminal Block -->
+      <div class="glass-card rounded-2xl p-6 border border-white/10 font-mono text-sm shadow-xl">
+        <div class="flex items-center justify-between text-xs text-gray-400 pb-3 mb-4 border-b border-white/5">
+          <span>orchestrator_config.yaml</span>
+          <span class="text-indigo-400">v2.4.0-stable</span>
+        </div>
+        <pre class="text-xs text-gray-300 overflow-x-auto leading-relaxed">
+<span class="text-indigo-400">version:</span> "2026.1"
+<span class="text-indigo-400">topology:</span>
+  <span class="text-indigo-300">name:</span> enterprise-production-mesh
+  <span class="text-indigo-300">reasoning_engine:</span>
+    <span class="text-indigo-200">primary:</span> anthropic/claude-3-5-sonnet-latest
+    <span class="text-indigo-200">fallback:</span> anthropic/claude-3-opus
+    <span class="text-indigo-200">max_budget_per_session_tokens:</span> 500000
+  <span class="text-indigo-300">guardrails:</span>
+    <span class="text-indigo-200">pii_redaction:</span> true
+    <span class="text-indigo-200">deterministic_schemas:</span> strict
+    <span class="text-indigo-200">hitl_approval_required:</span>
+      - database:migration
+      - cloud:provision
+      - payment:execute
+  <span class="text-indigo-300">memory_fabric:</span>
+    <span class="text-indigo-200">persistence:</span> hybrid-temporal
+    <span class="text-indigo-200">retention_days:</span> 90
+    <span class="text-indigo-200">encryption:</span> AES-256-GCM</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions & Use Cases -->
+  <section id="solutions" class="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-xs font-mono font-semibold tracking-wider text-indigo-400 uppercase mb-3">Enterprise Solutions</h2>
+      <p class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+        Engineered for High-Stakes Operations
+      </p>
+      <p class="text-gray-400">
+        Empowering leading technology organizations with dependable autonomous capability.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 mb-4">
+          <i data-lucide="code-2" class="w-5 h-5"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">Automated Code Modernization</h4>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Autonomous refactoring agents that analyze monolithic repositories, generate modern microservices, and produce complete unit/integration test suites.
+        </p>
+      </div>
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 mb-4">
+          <i data-lucide="activity" class="w-5 h-5"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">Autonomous SRE & Incident Triage</h4>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Real-time analysis of Datadog/Prometheus metrics and distributed logs. Agents automatically correlate anomalies, isolate root causes, and draft remediation PRs.
+        </p>
+      </div>
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center mb-4 text-indigo-400">
+          <i data-lucide="file-search" class="w-5 h-5"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">Cognitive Document Synthesis</h4>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Deep ingestion of thousands of enterprise contracts, compliance policies, and technical specifications with semantic cross-referencing and verification.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security & Trust -->
+  <section id="security" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
+    <div class="glass-card rounded-3xl p-10 md:p-14 border border-white/10 text-center relative overflow-hidden">
+      <div class="max-w-3xl mx-auto">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono font-medium mb-6">
+          <i data-lucide="shield" class="w-4 h-4"></i>
+          <span>ENTERPRISE-GRADE ASSURANCE</span>
+        </div>
+        <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-6">
+          Your Intellectual Property Stays Yours
+        </h3>
+        <p class="text-gray-400 text-base leading-relaxed mb-8">
+          We guarantee zero data retention for training, multi-tenant isolation with KMS encryption keys, and continuous audit pipelines compliant with strict global frameworks.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-gray-400">
+          <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/40 border border-white/5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> SOC 2 Type II Aligned
+          </div>
+          <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/40 border border-white/5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> ISO/IEC 27001 Controls
+          </div>
+          <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/40 border border-white/5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> GDPR & LGPD Compliant
+          </div>
+          <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/40 border border-white/5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> End-to-End TLS 1.3
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Early Access / CTA Section -->
+  <section id="access" class="py-24 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-xs font-mono font-semibold tracking-wider text-indigo-400 uppercase mb-3">Get Started</h2>
+    <h3 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">
+      Join the Techly Enterprise Pilot
+    </h3>
+    <p class="text-gray-400 text-base sm:text-lg mb-10 max-w-xl mx-auto">
+      We are actively onboarding select engineering teams and enterprise partners. Request priority access to our private SDK and orchestration platform.
+    </p>
+
+    <!-- Request Access Form -->
+    <div class="glass-card rounded-2xl p-8 border border-white/10 text-left max-w-xl mx-auto shadow-2xl">
+      <form id="waitlist-form" class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('success-message').classList.remove('hidden'); this.classList.add('hidden');">
+        <div>
+          <label class="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">Work Email</label>
+          <input type="email" required placeholder="founder@company.com" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">Company Name / Domain</label>
+          <input type="text" required placeholder="Acme Technologies" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">Primary Use Case</label>
+          <select class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors">
+            <option>Autonomous Multi-Agent Engineering</option>
+            <option>SRE & Incident Auto-Remediation</option>
+            <option>Enterprise Knowledge Synthesis & RAG</option>
+            <option>Claude Model Orchestration</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-4 rounded-xl font-semibold bg-gradient-to-r from-brand-600 to-brand-accent hover:from-brand-500 hover:to-indigo-500 text-white transition-all shadow-lg glow-effect flex items-center justify-center gap-2 mt-4">
+          <span>Apply for Private Pilot</span>
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </form>
+      
+      <div id="success-message" class="hidden text-center py-8">
+        <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-4">
+          <i data-lucide="check" class="w-6 h-6"></i>
+        </div>
+        <h4 class="text-xl font-bold text-white mb-2">Application Received</h4>
+        <p class="text-sm text-gray-400">Our engineering partnerships team will contact you within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-12 px-6 bg-[#06070a]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center">
+          <i data-lucide="cpu" class="w-4 h-4 text-white"></i>
+        </div>
+        <span class="text-sm font-bold text-white">Techly AI Technologies Inc.</span>
+      </div>
+      <div class="flex items-center space-x-8 text-xs text-gray-400 font-medium">
+        <a href="#features" class="hover:text-white transition-colors">Platform</a>
+        <a href="#security" class="hover:text-white transition-colors">Security</a>
+        <a href="mailto:contact@techly.com" class="hover:text-white transition-colors">Contact</a>
+        <span class="text-gray-600">|</span>
+        <span>&copy; 2026 Techly AI. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
